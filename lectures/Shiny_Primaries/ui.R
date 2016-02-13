@@ -1,16 +1,16 @@
+# ui.R
 
 library(shiny)
-# ui.R
 
 shinyUI(fluidPage(
   titlePanel("Tweets per Candidate"),
   
   sidebarLayout(
     sidebarPanel(
-      helpText("Choose a specific candidate, visualize the volume of tweets"),
+      helpText("Choose a specific candidate, visualize the volume of tweets and the words assoicated with that candidate."),
       
       selectInput("var", 
-                  label = "Choose a variable to display",
+                  label = "Choose a candidate",
                   choices = c("Hillary Clinton", "Bernie Sanders",
                               "Ted Cruz", "Marco Rubio","Donald Trump"),
                   selected = "Percent White"),
