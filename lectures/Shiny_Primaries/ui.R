@@ -16,7 +16,9 @@ shinyUI(fluidPage(
       
       sliderInput("range", 
                   label = "Range of time",
-                  min = 0, max = 200, value = c(0, 200))
+                  min = 0,
+                  max = 200,
+                  value = c(0, 200))
     ),
     
     mainPanel(
