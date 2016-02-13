@@ -1,6 +1,7 @@
 # ui.R
 
 library(shiny)
+source("parser.R")
 
 shinyUI(fluidPage(
   titlePanel("Tweets per Candidate"),
@@ -11,9 +12,7 @@ shinyUI(fluidPage(
       
       selectInput("var", 
                   label = "Choose a candidate",
-                  choices = c("Hillary Clinton", "Bernie Sanders",
-                              "Ted Cruz", "Marco Rubio","Donald Trump"),
-                  selected = "Percent White"),
+                  choices = candidates),
       
       sliderInput("range", 
                   label = "Range of time",

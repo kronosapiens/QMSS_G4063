@@ -4,22 +4,22 @@ library(wordcloud)
 library(streamR)
 source("parser.R")
 
-tweets.df <- parseTweets("tweets_BS.json", simplify = TRUE)
+tweets.df <- parseTweets("tweets.02.05.2016.json", simplify = TRUE)
+tweets.df <- addCandidates(tweets.df)
 
 shinyServer(function(input, output) {
 
-  #candidate.df = subset(tweets.df, tweets.df$candidate == input.var)
-  candidate.df = tweets.df
-  TweetCorpus <- makeCorpus(candidate.df)
-  times <- as.POSIXct(candidate.df$created_at, format="%a %b %d %H:%M:%S %z %Y")
-  
-  
   output$freq_plot<- renderPlot({
+    candidate.df = subset(tweets.df, tweets.df$candidate == input$var)
+    times <- as.POSIXct(candidate.df$created_at, format="%a %b %d %H:%M:%S %z %Y")
+                          
     hist(times,
          breaks="mins")
   })
   
   output$wordcloudT <- renderPlot({
+    candidate.df = subset(tweets.df, tweets.df$candidate == input$var)
+    TweetCorpus <- makeCorpus(candidate.df)
     wordcloud(TweetCorpus,
               max.words = 100,
               random.order=FALSE,
