@@ -5,7 +5,7 @@ library(streamR)
 library(tm)
 library(wordcloud)
 
-load("my_oauth.Rdata")
+# load("my_oauth.Rdata")
 
 shinyServer(function(input, output) {
 
@@ -23,7 +23,7 @@ shinyServer(function(input, output) {
   TweetCorpus <- tm_map(TweetCorpus, PlainTextDocument)
 
  
-  times <- as.POSIXct(tweets_BS.df$created_at, format="%a %b %d %H:%M:%S %z %Y")
+  times <- as.POSIXct(tweets_shiny.df$created_at, format="%a %b %d %H:%M:%S %z %Y")
   
   output$freq_plot<- renderPlot({
     hist(times, breaks="mins")
