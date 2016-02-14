@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<title>D3 Page Template</title>
-<script type="text/javascript" src="../d3/d3.js"></script>
-</head>
-<body>
-<script type="text/javascript">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Page Template</title>
+        <script type="text/javascript" src="d3/d3.js"></script>
+    </head>
 
-// a short and expressive piece of text output here
+    <body>
+        <script type="text/javascript">
 
-d3.select("body").append("p").text("My First D3 Visualization!");
+        // a short and expressive piece of text output here
 
-    d3.json("/tweets/tweets.02.07.2016.json", function(data) {
-  console.log(data[1]);
-});
+        d3.select("body").append("p").text("My First D3 Visualization!");
 
+        d3.json("tweets.json", function(err, json){
+          console.log(json);
+        });
 
-</script>
-</body>
+        </script>
+    </body>
 </html>
